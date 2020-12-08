@@ -1,5 +1,7 @@
 var RSS = require('rss');
 
+const baseURL = 'https://tkt.filiuspatris.net/'
+
 const feedGlobalOptions = {
 	title: 'Trümmlige KantiTalk',
 	description: 'TODO', // TODO
@@ -23,10 +25,13 @@ const itemGlobalOptions = {
 function generateFeed(episodesData) {
 	console.log('Generating feed...');
 
+	let lastDate = Math.max.apply(null, episodesData.map(episode => episode.published));
+	console.log({ lastDate });
+
 	// Global options
 	let feed = new RSS({
 		...feedGlobalOptions,
-		pubDate: 'May 20, 2012 04:00:00 GMT', // TODO
+		pubDate: new Date(lastDate),
 	});
 
 	// Episodes
@@ -35,10 +40,10 @@ function generateFeed(episodesData) {
 			...itemGlobalOptions,
 			title: episode.title,
 			date: episode.published,
-			// categories: ['Category 1', 'Category 2', 'Category 3', 'Category 4'], // optional - array of item categories
-			// author: 'Guest Author', // optional - defaults to feed author property
-			// description: 'use this for the content. It can include html.',
-			// url: 'http://example.com/article4?this&that', // link to the item
+			description: episode.description,
+			author: episode.author,
+			categories: episode.categories,
+			url: baseURL + episode.dirName,
 			// enclosure: { url: '...', file: 'path-to-file' }, // optional enclosure
 		})
 	});
