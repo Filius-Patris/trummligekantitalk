@@ -4,6 +4,10 @@ const feedGenerator = require('./feedGenerator');
 
 copyWebsite();
 let episodes = getEpisodeDetails();
+let feed = feedGenerator.generateFeed(episodes);
+console.log({ feed });
+writeRSSFeed(feed);
+console.log('Finished generating "Trümmlige KantiTalk"');
 
 
 function copyWebsite() {
@@ -32,4 +36,10 @@ function getEpisodeDetails() {
 	});
 
 	console.log({ episodes });
+	return episodes;
+}
+
+function writeRSSFeed(feed) {
+	console.log('Writing feed...');
+	fs.writeFileSync('./dist/feed.xml', feed);
 }
