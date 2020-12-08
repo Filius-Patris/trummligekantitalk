@@ -9,9 +9,7 @@ fs.mkdirSync(`./episodes/episode${episodeNo}`);
 var metadataObj = {
 	title: 'TODO',
 	description: 'TODO',
-	length: 0,
-	author: 'TODO: optional co-author',
-	categories: ['TODO: optional other categories'],
+	file: "TODO: specify the file like 'track.ogg'",
 	published: Date.now(),
 }
 

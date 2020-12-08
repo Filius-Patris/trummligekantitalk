@@ -1,6 +1,7 @@
 var RSS = require('rss');
 
-const baseURL = 'https://tkt.filiuspatris.net/'
+const baseURL = 'https://tkt.filiuspatris.net/';
+const rawFilesBaseURL = baseURL + 'raw/';
 
 const feedGlobalOptions = {
 	title: 'Trümmlige KantiTalk',
@@ -41,10 +42,12 @@ function generateFeed(episodesData) {
 			title: episode.title,
 			date: episode.published,
 			description: episode.description,
-			author: episode.author,
-			categories: episode.categories,
 			url: baseURL + episode.dirName,
-			// enclosure: { url: '...', file: 'path-to-file' }, // optional enclosure
+			guid: episode.dirName,
+			enclosure: {
+				url: `${rawFilesBaseURL}${episode.dirName}/${episode.file}`,
+				file: `./episodes/${episode.dirName}/${episode.file}`
+			},
 		})
 	});
 
