@@ -10,6 +10,8 @@ var metadataObj = {
 	title: 'TODO',
 	description: 'TODO',
 	length: 0,
+	author: 'TODO: optional co-author',
+	categories: ['TODO: optional other categories'],
 	published: Date.now(),
 }
 
