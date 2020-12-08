@@ -1,0 +1,16 @@
+{
+  "name": "trummligekantitalk",
+  "version": "1.0.0",
+  "description": "The website of the Trümmlige KantiTalk podcast",
+  "main": "index.js",
+  "repository": "https://github.com/Filius-Patris/trummligekantitalk.git",
+  "author": "FiliusPatris <filiuspatrisapps@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "rss": "^1.2.2"
+  },
+  "scripts": {
+    "build": "node build.js"
+  }
+}
