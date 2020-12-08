@@ -3,6 +3,7 @@ const fs = require('fs');
 const feedGenerator = require('./feedGenerator');
 
 copyWebsite();
+copyRawFiles();
 let episodes = getEpisodeDetails();
 let feed = feedGenerator.generateFeed(episodes);
 console.log({ feed });
@@ -13,6 +14,11 @@ console.log('Finished generating "Trümmlige KantiTalk"');
 function copyWebsite() {
 	console.log('Building the "Trümmlige KantiTalk" website...');
 	console.log(execSync('cp -v -R website/* dist/').toString());
+}
+
+function copyRawFiles() {
+	console.log('Copying raw files to dist/ directory...');
+	console.log(execSync('cp -v -R episodes dist/raw').toString());
 }
 
 function getEpisodeDetails() {
@@ -26,8 +32,6 @@ function getEpisodeDetails() {
 		if (metadataRaw.includes('TODO')) throw new Error(`Episode ${dir} has TODO entries. Aborting.`);
 
 		let metadata = JSON.parse(metadataRaw);
-		// Check that we have an appropriae length
-		if (metadata.length === 0) throw new Error(`Episode ${dir} has a length of zero. Aborting.`);
 
 		// Attach dirname for later use...
 		metadata.dirName = dir;
