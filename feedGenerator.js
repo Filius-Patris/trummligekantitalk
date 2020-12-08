@@ -8,7 +8,7 @@ const feedGlobalOptions = {
 	description: 'TODO', // TODO
 	feed_url: 'http://tkt.filiuspatris.net/rss.xml',
 	site_url: 'http://tkt.filiuspatris.net',
-	image_url: 'http://example.com/icon.png', // TODO
+	image_url: 'http://tkt.filiuspatris.net/raw/logo.png',
 	docs: 'https://www.rssboard.org/rss-specification',
 	managingEditor: 'Joel & Alina',
 	webMaster: 'filiuspatrisapps@gmail.com ("FiliusPatris")',

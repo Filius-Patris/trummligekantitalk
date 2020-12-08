@@ -19,6 +19,7 @@ function copyWebsite() {
 function copyRawFiles() {
 	console.log('Copying raw files to dist/ directory...');
 	console.log(execSync('cp -v -R episodes dist/raw').toString());
+	console.log(execSync('cp -v logo.png dist/raw/').toString());
 }
 
 function getEpisodeDetails() {
