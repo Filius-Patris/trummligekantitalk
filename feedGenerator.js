@@ -1,7 +1,7 @@
 var RSS = require('rss');
 
 const feedGlobalOptions = {
-	title: 'Trümmlige KantiTal',
+	title: 'Trümmlige KantiTalk',
 	description: 'TODO', // TODO
 	feed_url: 'http://tkt.filiuspatris.net/rss.xml',
 	site_url: 'http://tkt.filiuspatris.net',
